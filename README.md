@@ -2,5 +2,5 @@
 
 백기선님의 인프런 강의를 수강하면서 학습한 내용과 실습코드입니다. </br>
 
-> #### - 📝 강의명 : [스프링과 JPA 기반 웹 애플리케이션 개발](https://www.inflearn.com/course/%ED%95%9C%EC%9E%85-%EB%A6%AC%EC%95%A1%ED%8A%B8)
+> #### - 📝 강의명 : [스프링과 JPA 기반 웹 애플리케이션 개발](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-JPA-%EC%9B%B9%EC%95%B1)
 > #### - 🗓 수강일자 : 2023. 10. 30 ~
