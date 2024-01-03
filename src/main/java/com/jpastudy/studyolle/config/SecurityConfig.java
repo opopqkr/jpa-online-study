@@ -21,6 +21,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers(HttpMethod.GET, "/profile/*").permitAll()
                 .anyRequest()
                 .authenticated();
+
+        http.formLogin()
+                .loginPage("/login") // custom login page
+                .permitAll();
+
+        http.logout()
+                .logoutSuccessUrl("/");
     }
 
     @Override

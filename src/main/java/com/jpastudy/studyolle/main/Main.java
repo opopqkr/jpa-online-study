@@ -17,4 +17,9 @@ public class Main {
 
         return "index";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 }
