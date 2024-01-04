@@ -106,6 +106,7 @@ class AccountControllerTest {
         Account account = Account.builder()
                 .email("test@github.com")
                 .nickname("test")
+                .password("test-password") // 인증 후, 로그인 기능 추가로 account password 추가 필요.
                 .build();
 
         Account newAccount = accountRepository.save(account);
