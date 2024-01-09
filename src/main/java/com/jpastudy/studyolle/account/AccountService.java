@@ -18,6 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class AccountService implements UserDetailsService {
 
@@ -31,10 +32,10 @@ public class AccountService implements UserDetailsService {
      * - processNewAccount() 가 끝나는 시점에 commit.
      * 단, Transactional annotation 이 없을 경우 saveNewAccount() 에서 repository.save() 를 호출 하면 account 객체는 detached 상태가 됨.
      *
-     * @param signUpForm .
+     * @param signUpForm - signUpForm
      * @return newAccount
      */
-    @Transactional
+    // @Transactional
     public Account processNewAccount(SignUpForm signUpForm) {
         Account newAccount = saveNewAccount(signUpForm);
         sendSignUpConfirmEmail(newAccount);
@@ -79,6 +80,7 @@ public class AccountService implements UserDetailsService {
         SecurityContextHolder.getContext().setAuthentication(token);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public UserDetails loadUserByUsername(String emailOrNickname) throws UsernameNotFoundException {
         Account account = accountRepository.findByEmail(emailOrNickname);
@@ -91,5 +93,10 @@ public class AccountService implements UserDetailsService {
         }
 
         return new UserAccount(account);
+    }
+
+    public void completeSignUp(Account account) {
+        account.completeSignUp();
+        login(account);
     }
 }
